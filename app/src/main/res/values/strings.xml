@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">AndroidTestProject</string>
+    <string name="app_name">Board Entry Test</string>
+    <string name="board_number">Board Number</string>
+    <string name="edit_board_number">Enter board number in tournament</string>
+    <string name="result">Board Contract</string>
+    <string name="edt_result">Enter contract</string>
+    <string name="check_isns">Are we NS pair?</string>
 </resources>

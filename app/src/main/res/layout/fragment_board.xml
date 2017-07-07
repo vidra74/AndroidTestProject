@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp">
+
+
+    <TextView
+        android:id="@+id/tvBoardNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/board_number" />
+
+    <EditText
+        android:id="@+id/etBoardNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_board_number"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/tvContract"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/result" />
+
+    <EditText
+        android:id="@+id/edtTextContract"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/edt_result" />
+
+    <CheckBox
+        android:id="@+id/checkedNS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/check_isns" />
+</LinearLayout>

@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
  */
 
 public abstract class SingleFragmentActivity extends AppCompatActivity {
+    protected abstract Fragment createFragment();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,7 +21,7 @@ public abstract class SingleFragmentActivity extends AppCompatActivity {
         Fragment lFragment = fm.findFragmentById(R.id.fragment_container);
 
         if (lFragment == null){
-            lFragment = new BoardFragment();
+            lFragment = createFragment();
             fm.beginTransaction()
                     .add(R.id.fragment_container, lFragment)
                     .commit();

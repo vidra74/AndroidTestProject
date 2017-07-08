@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -33,9 +35,34 @@ public class TournamentFragment extends Fragment {
         return v;
     }
 
-    private class TournamentHolder extends RecyclerView.ViewHolder{
+    private class TournamentHolder extends RecyclerView.ViewHolder
+        implements View.OnClickListener{
+        private TextView mBoardNo;
+        private TextView mContract;
+        private Board mBoard;
+
         public TournamentHolder(LayoutInflater inflater, ViewGroup parent){
             super(inflater.inflate(R.layout.list_item_board, parent, false));
+
+            itemView.setOnClickListener(this);
+
+            mBoardNo = (TextView)itemView.findViewById(R.id.board_number);
+            mContract = (TextView)itemView.findViewById(R.id.board_contract);
+        }
+
+        public void bind(Board pBoard){
+            mBoard = pBoard;
+            // ako uđe int onda Andorid traži R.id sa intom i to puca pa zato int u setText treba castati
+            mBoardNo.setText(Integer.toString(mBoard.getTournamentBoardId()));
+            mContract.setText(mBoard.getContract());
+        }
+
+        @Override
+        public void onClick(View pView) {
+            Toast.makeText(getActivity(),
+                            mBoard.getContract() + " clicked",
+                            Toast.LENGTH_SHORT)
+                    .show();
         }
     }
 
@@ -55,7 +82,8 @@ public class TournamentFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(TournamentHolder holder, int position) {
-
+            Board lBoard = mBoards.get(position);
+            holder.bind(lBoard);
         }
 
         @Override

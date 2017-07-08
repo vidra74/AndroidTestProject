@@ -7,6 +7,9 @@ import android.support.v4.app.Fragment;
  */
 
 public class TournamentActivity extends SingleFragmentActivity {
+
+
+
     protected Fragment createFragment(){
         return new TournamentFragment();
     }

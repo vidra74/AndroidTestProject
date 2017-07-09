@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +41,7 @@ public class TournamentFragment extends Fragment {
         implements View.OnClickListener{
         private TextView mBoardNo;
         private TextView mContract;
+        private ImageView mNS;
         private Board mBoard;
 
         public TournamentHolder(LayoutInflater inflater, ViewGroup parent){
@@ -48,6 +51,7 @@ public class TournamentFragment extends Fragment {
 
             mBoardNo = (TextView)itemView.findViewById(R.id.board_number);
             mContract = (TextView)itemView.findViewById(R.id.board_contract);
+            mNS = (ImageView)itemView.findViewById(R.id.isNSPair);
         }
 
         public void bind(Board pBoard){
@@ -55,6 +59,7 @@ public class TournamentFragment extends Fragment {
             // ako uđe int onda Andorid traži R.id sa intom i to puca pa zato int u setText treba castati
             mBoardNo.setText(Integer.toString(mBoard.getTournamentBoardId()));
             mContract.setText(mBoard.getContract());
+            mNS.setVisibility(mBoard.isNS() ? View.VISIBLE : View.GONE);
         }
 
         @Override

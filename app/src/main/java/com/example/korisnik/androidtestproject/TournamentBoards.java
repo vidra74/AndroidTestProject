@@ -27,7 +27,7 @@ public class TournamentBoards {
         mTournamentID = UUID.randomUUID();
         for(int i = 0; i < 28; i++){
             Board lBoard = new Board(mTournamentID, 1);
-            lBoard.setNS(true);
+
             int nivo = (i % 7) + 1;
             String lContract = "" + nivo;
             nivo = (i+1) % 5;
@@ -48,6 +48,7 @@ public class TournamentBoards {
             lBoard.setContract(lContract);
             // Par broj 1 igra protiv ostalih parova po 4 borda, počevši od broja 2 do broja 8
             lBoard.setOppsPairId(8 - (i/4));
+            lBoard.setNS(lBoard.getOppsPairId() % 2 == 0);
             lBoard.setTournamentBoardId(i+1);
             lBoard.setBoardId(UUID.randomUUID());
             mBoardList.add(lBoard);

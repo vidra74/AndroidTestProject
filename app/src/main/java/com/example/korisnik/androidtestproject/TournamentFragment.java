@@ -71,7 +71,7 @@ public class TournamentFragment extends Fragment {
 
         @Override
         public void onClick(View pView) {
-            Intent intent = BoardActivity.newIntent(getActivity(), mBoard.getBoardId());
+            Intent intent = BoardPagerActivity.newIntent(getActivity(), mBoard.getBoardId());
             startActivity(intent);
         }
     }

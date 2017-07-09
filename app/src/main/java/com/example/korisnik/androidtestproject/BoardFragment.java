@@ -31,7 +31,7 @@ public class BoardFragment extends Fragment{
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        UUID lUUID = (UUID)getActivity().getIntent().getSerializableExtra(BoardActivity.EXTRA_BOARD_UUID);
+        UUID lUUID = (UUID)getArguments().getSerializable(ARG_BOARD_UUID);
         mBoard = TournamentBoards.get(getActivity()).getBoard(lUUID);
     }
 

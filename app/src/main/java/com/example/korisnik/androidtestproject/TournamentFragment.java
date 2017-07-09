@@ -1,5 +1,6 @@
 package com.example.korisnik.androidtestproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -37,6 +38,12 @@ public class TournamentFragment extends Fragment {
         return v;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateUI();
+    }
+
     private class TournamentHolder extends RecyclerView.ViewHolder
         implements View.OnClickListener{
         private TextView mBoardNo;
@@ -64,10 +71,8 @@ public class TournamentFragment extends Fragment {
 
         @Override
         public void onClick(View pView) {
-            Toast.makeText(getActivity(),
-                            mBoard.getContract() + " clicked",
-                            Toast.LENGTH_SHORT)
-                    .show();
+            Intent intent = BoardActivity.newIntent(getActivity(), mBoard.getBoardId());
+            startActivity(intent);
         }
     }
 
@@ -101,8 +106,12 @@ public class TournamentFragment extends Fragment {
         TournamentBoards lTournamentBoards = TournamentBoards.get(getActivity());
         List<Board> lBoards = lTournamentBoards.getTournamentBoards();
 
-        mBoardAdapter = new BoardAdapter(lBoards);
-        mTournamentRecyclerView.setAdapter(mBoardAdapter);
+        if (mBoardAdapter == null) {
+            mBoardAdapter = new BoardAdapter(lBoards);
+            mTournamentRecyclerView.setAdapter(mBoardAdapter);
+        } else {
+            mBoardAdapter.notifyDataSetChanged();
+        }
 
     }
 }

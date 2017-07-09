@@ -21,15 +21,18 @@ import static android.widget.CompoundButton.*;
  */
 
 public class BoardFragment extends Fragment{
+    private static final String ARG_BOARD_UUID = "board_uuid";
+
     private Board mBoard;
     private EditText mBoardNo;
-    private EditText mResult;
+    private EditText mContract;
     private CheckBox mIsNS;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mBoard = new Board(UUID.randomUUID(), 1);
+        UUID lUUID = (UUID)getActivity().getIntent().getSerializableExtra(BoardActivity.EXTRA_BOARD_UUID);
+        mBoard = TournamentBoards.get(getActivity()).getBoard(lUUID);
     }
 
     @Nullable
@@ -55,8 +58,9 @@ public class BoardFragment extends Fragment{
             }
         });
 
-        mResult = (EditText) v.findViewById(R.id.edtTextContract);
-        mResult.addTextChangedListener(new TextWatcher() {
+        mContract = (EditText) v.findViewById(R.id.edtTextContract);
+
+        mContract.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 ;
@@ -74,6 +78,7 @@ public class BoardFragment extends Fragment{
         });
 
         mIsNS = (CheckBox) v.findViewById(R.id.checkedNS);
+
         mIsNS.setOnCheckedChangeListener(new OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -81,6 +86,21 @@ public class BoardFragment extends Fragment{
             }
         });
 
+        if (mBoard != null) {
+            mBoardNo.setText(Integer.toString(mBoard.getTournamentBoardId()));
+            mIsNS.setChecked(mBoard.isNS());
+            mContract.setText(mBoard.getContract());
+        }
+
         return v;
+    }
+
+    public static BoardFragment newInstance(UUID pBoardUUID){
+        Bundle args = new Bundle();
+        args.putSerializable(ARG_BOARD_UUID, pBoardUUID);
+
+        BoardFragment lBoardFragment = new BoardFragment();
+        lBoardFragment.setArguments(args);
+        return lBoardFragment;
     }
 }

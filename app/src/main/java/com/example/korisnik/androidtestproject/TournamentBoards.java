@@ -67,4 +67,13 @@ public class TournamentBoards {
         }
         return null;
     }
+
+    public Board getBoard(UUID id){
+        for (Board lBoard: mBoardList){
+            if (lBoard.getBoardId().equals(id)){
+                return lBoard;
+            }
+        }
+        return null;
+    }
 }

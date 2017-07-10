@@ -1,3 +1,24 @@
+2017.07.10:	Database BridgeBoards created.
+		Helper class created.
+		Schema class created.
+		Changed app style to Appcompat.Theme.Light
+		Toolbar added.
+		Add new Board option.
+		Delete item operation.
+		Applied menu for board fragment.
+		Boards are stored in database.
+		Boards are read from database.
+		Added getters and setters for Tournament UUID and Pair number.
+		New board gets new board UUID automatically.
+		Object is stored when edited and app is paused or closed.
+		Cursor wrapper class created.
+
+2017.07.09:	New item layout organization.
+		Temporary icon for NS pair positioning.
+		Open Board activity from board list fragment.
+		ViewPager implemented in application.
+		BoardActivity removed from project as obsolete.
+
 2017.07.08:	SingleFragmentActivity
 		TournamentActivity
 		TournamentFragment
@@ -6,5 +27,5 @@
 		RecyclerView
 		OnClick implemented
 
-2017.07.07:	Dodan ReadMe.txt
-		Dodan Board fragment sa tri widgeta.
+2017.07.07:	ReadMe.txt
+		Board fragment created with three widgets.

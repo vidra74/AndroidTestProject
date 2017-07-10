@@ -1,6 +1,9 @@
 package com.example.korisnik.androidtestproject;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+
+import com.example.korisnik.androidtestproject.database.BridgeBoardsHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +16,8 @@ import java.util.UUID;
 public class TournamentBoards {
     private static TournamentBoards sTournament;
     private List<Board> mBoardList;
+    private Context mContext;
+    private SQLiteDatabase mDatabase;
     private UUID mTournamentID;
 
     public static TournamentBoards get(Context pContext){
@@ -23,6 +28,8 @@ public class TournamentBoards {
     }
 
     private TournamentBoards(Context pContext){
+        mContext = pContext.getApplicationContext();
+        mDatabase = new BridgeBoardsHelper(mContext).getWritableDatabase();
         mBoardList = new ArrayList<Board>();
         mTournamentID = UUID.randomUUID();
         for(int i = 0; i < 28; i++){

@@ -129,4 +129,11 @@ public class BoardFragment extends Fragment{
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        // update when fragment is done
+        TournamentBoards.get(getActivity()).updateBoard(mBoard);
+    }
 }

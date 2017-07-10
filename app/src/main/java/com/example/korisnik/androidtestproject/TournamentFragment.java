@@ -68,10 +68,6 @@ public class TournamentFragment extends Fragment {
                 Intent intent = BoardPagerActivity.newIntent(getActivity(), lBoard.getBoardId());
                 startActivity(intent);
                 return true;
-            case R.id.delete_board:
-                Toast toast = Toast.makeText(getContext(), "Deletion not yet implemented", Toast.LENGTH_SHORT);
-                toast.show();
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -133,6 +129,10 @@ public class TournamentFragment extends Fragment {
         public int getItemCount() {
             return mBoards.size();
         }
+
+        public void setBoards(List<Board> pBoards){
+            mBoards = pBoards;
+        }
     }
 
     private void updateUI(){
@@ -143,6 +143,7 @@ public class TournamentFragment extends Fragment {
             mBoardAdapter = new BoardAdapter(lBoards);
             mTournamentRecyclerView.setAdapter(mBoardAdapter);
         } else {
+            mBoardAdapter.setBoards(lBoards);
             mBoardAdapter.notifyDataSetChanged();
         }
 

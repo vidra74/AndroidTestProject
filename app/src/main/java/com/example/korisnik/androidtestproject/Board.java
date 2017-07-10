@@ -8,6 +8,23 @@ import java.util.UUID;
 
 public class Board {
     private UUID mBoardId;
+
+    public UUID getTournamentId() {
+        return mTournamentId;
+    }
+
+    public void setTournamentId(UUID pTournamentId) {
+        mTournamentId = pTournamentId;
+    }
+
+    public int getPairId() {
+        return mPairId;
+    }
+
+    public void setPairId(int pPairId) {
+        mPairId = pPairId;
+    }
+
     private UUID mTournamentId;
     private int mOppsPairId;
     private int mTournamentBoardId;
@@ -94,7 +111,7 @@ public class Board {
     public Board(UUID pTournament, int pPairId){
         this.mTournamentId = pTournament;
         this.mPairId = pPairId;
-
+        this.mBoardId = UUID.randomUUID();
     }
 
 }

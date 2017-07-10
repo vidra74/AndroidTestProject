@@ -8,6 +8,16 @@ import java.util.UUID;
 
 public class Board {
     private UUID mBoardId;
+    private UUID mTournamentId;
+    private int mOppsPairId;
+    private int mTournamentBoardId;
+    private int mPairId;
+    private boolean mNS;
+    private String mLead;
+    private String mDeclarer;
+    private String mContract;
+    private int mDeclarerTricksToContract;
+    private int mNSResult;
 
     public UUID getTournamentId() {
         return mTournamentId;
@@ -24,17 +34,6 @@ public class Board {
     public void setPairId(int pPairId) {
         mPairId = pPairId;
     }
-
-    private UUID mTournamentId;
-    private int mOppsPairId;
-    private int mTournamentBoardId;
-    private int mPairId;
-    private boolean mNS;
-    private String mLead;
-    private char mDeclarer;
-    private String mContract;
-    private int mDeclarerTricksToContract;
-    private int mNSResult;
 
     public UUID getBoardId() {
         return mBoardId;
@@ -68,11 +67,11 @@ public class Board {
         mLead = pLead;
     }
 
-    public char getDeclarer() {
+    public String getDeclarer() {
         return mDeclarer;
     }
 
-    public void setDeclarer(char pDeclarer) {
+    public void setDeclarer(String pDeclarer) {
         mDeclarer = pDeclarer;
     }
 
@@ -112,6 +111,10 @@ public class Board {
         this.mTournamentId = pTournament;
         this.mPairId = pPairId;
         this.mBoardId = UUID.randomUUID();
+        this.mDeclarer = "N";
+        this.mNSResult = 0;
+        this.mDeclarerTricksToContract = 0;
+        this.mNS = false;
     }
 
 }

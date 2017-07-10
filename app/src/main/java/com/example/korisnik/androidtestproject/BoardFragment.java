@@ -31,6 +31,11 @@ public class BoardFragment extends Fragment{
     private Board mBoard;
     private EditText mBoardNo;
     private EditText mContract;
+    private EditText mOppsPairs;
+    private EditText mDeclarer;
+    private EditText mDeclarerTricks;
+    private EditText mNSResult;
+    private EditText mLead;
     private CheckBox mIsNS;
 
     @Override
@@ -65,7 +70,6 @@ public class BoardFragment extends Fragment{
         });
 
         mContract = (EditText) v.findViewById(R.id.edtTextContract);
-
         mContract.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -75,6 +79,96 @@ public class BoardFragment extends Fragment{
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 mBoard.setContract(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                ;
+            }
+        });
+
+        mOppsPairs = (EditText) v.findViewById(R.id.edtOppsPairs);
+        mOppsPairs.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                ;
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                mBoard.setOppsPairId(Integer.parseInt(s.toString()));
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                ;
+            }
+        });
+
+        mDeclarerTricks = (EditText) v.findViewById(R.id.edtDeclarerTricks);
+        mDeclarerTricks.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                ;
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                mBoard.setDeclarerTricksToContract(Integer.parseInt(s.toString()));
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                ;
+            }
+        });
+
+        mNSResult = (EditText) v.findViewById(R.id.edtNSResult);
+        mNSResult.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                ;
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                mBoard.setNSResult(Integer.parseInt(s.toString()));
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                ;
+            }
+        });
+
+        mDeclarer = (EditText) v.findViewById(R.id.edtDeclarer);
+        mDeclarer.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                ;
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                mBoard.setDeclarer(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                ;
+            }
+        });
+
+        mLead = (EditText) v.findViewById(R.id.edtLead);
+        mLead.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                ;
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                mBoard.setLead(s.toString());
             }
 
             @Override
@@ -96,6 +190,11 @@ public class BoardFragment extends Fragment{
             mBoardNo.setText(Integer.toString(mBoard.getTournamentBoardId()));
             mIsNS.setChecked(mBoard.isNS());
             mContract.setText(mBoard.getContract());
+            mOppsPairs.setText(Integer.toString(mBoard.getOppsPairId()));
+            mDeclarerTricks.setText(Integer.toString(mBoard.getDeclarerTricksToContract()));
+            mNSResult.setText(Integer.toString(mBoard.getNSResult()));
+            mDeclarer.setText(mBoard.getDeclarer());
+            mLead.setText(mBoard.getLead());
         }
 
         return v;

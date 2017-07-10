@@ -14,6 +14,10 @@ import java.util.List;
 import java.util.UUID;
 
 import static com.example.korisnik.androidtestproject.database.BridgeBoardsSchema.BoardsTable.Cols.BUUID;
+import static com.example.korisnik.androidtestproject.database.BridgeBoardsSchema.BoardsTable.Cols.DECLARER;
+import static com.example.korisnik.androidtestproject.database.BridgeBoardsSchema.BoardsTable.Cols.DECTRICKS;
+import static com.example.korisnik.androidtestproject.database.BridgeBoardsSchema.BoardsTable.Cols.LEAD;
+import static com.example.korisnik.androidtestproject.database.BridgeBoardsSchema.BoardsTable.Cols.NSRESULT;
 import static com.example.korisnik.androidtestproject.database.BridgeBoardsSchema.BoardsTable.Cols.TUUID;
 import static com.example.korisnik.androidtestproject.database.BridgeBoardsSchema.BoardsTable.Cols.PAIRID;
 import static com.example.korisnik.androidtestproject.database.BridgeBoardsSchema.BoardsTable.Cols.OPPSPAIRID;
@@ -153,6 +157,10 @@ public class TournamentBoards {
         values.put(ISNS, pBoard.isNS());
         values.put(CONTRACT, pBoard.getContract());
         values.put(BOARDNO, pBoard.getTournamentBoardId());
+        values.put(DECLARER, pBoard.getDeclarer());
+        values.put(LEAD, pBoard.getLead());
+        values.put(DECTRICKS, pBoard.getDeclarerTricksToContract());
+        values.put(NSRESULT, pBoard.getNSResult());
 
         return values;
     }

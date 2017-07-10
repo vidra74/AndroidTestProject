@@ -16,11 +16,10 @@ public class BridgeBoardsSchema {
             public static final String ISNS         = "is_ns";
             public static final String CONTRACT     = "contract";
             public static final String BOARDNO      = "board_t_no";
-
-            //            private String mLead;
-            //            private char mDeclarer;
-            //            private int mDeclarerTricksToContract;
-            //            private int mNSResult;
+            public static final String LEAD         = "lead";
+            public static final String DECLARER     = "declarer";
+            public static final String DECTRICKS    = "declarer_tricks";
+            public static final String NSRESULT     = "ns_result";
         }
     }
 }

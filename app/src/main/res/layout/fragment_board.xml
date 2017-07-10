@@ -20,16 +20,76 @@
         android:inputType="number" />
 
     <TextView
+        android:id="@+id/tvOppsPairs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/opps_pair_number" />
+
+    <EditText
+        android:id="@+id/edtOppsPairs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_opps_pair_number" />
+
+    <TextView
         android:id="@+id/tvContract"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/result" />
+        android:text="@string/contract" />
 
     <EditText
         android:id="@+id/edtTextContract"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/edt_result" />
+        android:hint="@string/edt_contract" />
+
+    <TextView
+        android:id="@+id/tvDeclarer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/declarer" />
+
+    <EditText
+        android:id="@+id/edtDeclarer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_declarer" />
+
+    <TextView
+        android:id="@+id/tvLead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lead" />
+
+    <EditText
+        android:id="@+id/edtLead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/edt_lead" />
+
+    <TextView
+        android:id="@+id/tvDeclarerTricks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/declarer_tricks" />
+
+    <EditText
+        android:id="@+id/edtDeclarerTricks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_declarer_tricks" />
+
+    <TextView
+        android:id="@+id/tvNSResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/result" />
+
+    <EditText
+        android:id="@+id/edtNSResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_result" />
 
     <CheckBox
         android:id="@+id/checkedNS"

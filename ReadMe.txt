@@ -12,6 +12,7 @@
 		New board gets new board UUID automatically.
 		Object is stored when edited and app is paused or closed.
 		Cursor wrapper class created.
+		New board fields updated in app.
 
 2017.07.09:	New item layout organization.
 		Temporary icon for NS pair positioning.

@@ -1,16 +1,21 @@
 package com.example.korisnik.androidtestproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.UUID;
 
@@ -33,6 +38,7 @@ public class BoardFragment extends Fragment{
         super.onCreate(savedInstanceState);
         UUID lUUID = (UUID)getArguments().getSerializable(ARG_BOARD_UUID);
         mBoard = TournamentBoards.get(getActivity()).getBoard(lUUID);
+        setHasOptionsMenu(true);
     }
 
     @Nullable
@@ -102,5 +108,25 @@ public class BoardFragment extends Fragment{
         BoardFragment lBoardFragment = new BoardFragment();
         lBoardFragment.setArguments(args);
         return lBoardFragment;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.board_fragment, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.delete_board:
+                Toast toast = Toast.makeText(getContext(), "Board deleted", Toast.LENGTH_SHORT);
+                toast.show();
+                TournamentBoards.get(getActivity()).deleteBoard(mBoard.getBoardId());
+                getActivity().finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

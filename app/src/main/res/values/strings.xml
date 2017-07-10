@@ -6,4 +6,5 @@
     <string name="edt_result">Enter contract</string>
     <string name="check_isns">Are we NS pair?</string>
     <string name="new_board">New Board</string>
+    <string name="delete_board">Remove Board</string>
 </resources>

@@ -34,6 +34,18 @@ public class TournamentBoards {
         mBoardList.add(pBoard);
     }
 
+    public void deleteBoard(UUID pBoardUUID){
+        if (pBoardUUID == null){
+            return;
+        }
+        for(Board lBoard: mBoardList){
+            if (lBoard.getBoardId().equals(pBoardUUID)){
+                mBoardList.remove(lBoard);
+                break;
+            }
+        }
+    }
+
     private TournamentBoards(Context pContext){
         mContext = pContext.getApplicationContext();
         mDatabase = new BridgeBoardsHelper(mContext).getWritableDatabase();

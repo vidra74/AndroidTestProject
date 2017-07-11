@@ -49,7 +49,7 @@ public class BoardFragment extends Fragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_board, container, false);
+        View v = inflater.inflate(R.layout.fragment_board2, container, false);
 
         mBoardNo = (EditText) v.findViewById(R.id.etBoardNo);
         mBoardNo.addTextChangedListener(new TextWatcher() {
@@ -60,7 +60,8 @@ public class BoardFragment extends Fragment{
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                mBoard.setTournamentBoardId(Integer.parseInt(s.toString()));
+
+                mBoard.setTournamentBoardId(tryStrToInt(s.toString()));
             }
 
             @Override
@@ -96,7 +97,7 @@ public class BoardFragment extends Fragment{
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                mBoard.setOppsPairId(Integer.parseInt(s.toString()));
+                mBoard.setOppsPairId(tryStrToInt(s.toString()));
             }
 
             @Override
@@ -114,7 +115,7 @@ public class BoardFragment extends Fragment{
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                mBoard.setDeclarerTricksToContract(Integer.parseInt(s.toString()));
+                mBoard.setDeclarerTricksToContract(tryStrToInt(s.toString()));
             }
 
             @Override
@@ -132,7 +133,7 @@ public class BoardFragment extends Fragment{
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                mBoard.setNSResult(Integer.parseInt(s.toString()));
+                mBoard.setNSResult(tryStrToInt(s.toString()));
             }
 
             @Override
@@ -198,6 +199,20 @@ public class BoardFragment extends Fragment{
         }
 
         return v;
+    }
+
+    private int tryStrToInt(String pNumber){
+        if ((pNumber == "") || (pNumber == "-")){
+            return 0;
+        }
+        int lNumber;
+        try{
+            lNumber = Integer.parseInt(pNumber);
+        } catch(Exception e1) {
+            lNumber = 0;
+        }
+        return lNumber;
+
     }
 
     public static BoardFragment newInstance(UUID pBoardUUID){

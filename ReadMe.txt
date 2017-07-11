@@ -1,3 +1,6 @@
+2017.07.11:	Entry integer value error corrected: tryStrtoInt().
+		New layout for board fragment.
+
 2017.07.10:	Database BridgeBoards created.
 		Helper class created.
 		Schema class created.

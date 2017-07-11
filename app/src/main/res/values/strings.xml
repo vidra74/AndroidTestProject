@@ -12,7 +12,7 @@
     <string name="edit_declarer_tricks">Enter declarer tricks</string>
     <string name="contract">Board Contract</string>
     <string name="edt_contract">Enter contract</string>
-    <string name="lead">Leadt</string>
+    <string name="lead">Lead</string>
     <string name="edt_lead">Enter lead</string>
     <string name="check_isns">Are we NS pair?</string>
     <string name="new_board">New Board</string>

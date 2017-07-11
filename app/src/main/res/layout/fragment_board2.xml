@@ -34,22 +34,24 @@
 
     <TextView
         android:id="@+id/tvLead"
-        android:layout_width="100dp"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
         android:text="@string/lead"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/edtDeclarerTricks"
         app:layout_constraintTop_toBottomOf="@+id/edtTextContract"/>
 
     <EditText
         android:id="@+id/edtLead"
-        android:layout_width="100dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginRight="16dp"
         android:layout_marginTop="8dp"
         android:hint="@string/edt_lead"
         app:layout_constraintLeft_toRightOf="@+id/tvLead"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtTextContract"/>
 
     <TextView
@@ -76,7 +78,7 @@
 
     <TextView
         android:id="@+id/tvDeclarer"
-        android:layout_width="75dp"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
@@ -136,24 +138,21 @@
         android:id="@+id/tvDeclarerTricks"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
         android:text="@string/declarer_tricks"
-        app:layout_constraintTop_toBottomOf="@+id/edtTextContract"
-        app:layout_constraintLeft_toRightOf="@+id/edtLead"
-        android:layout_marginLeft="8dp"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtTextContract"/>
 
     <EditText
         android:id="@+id/edtDeclarerTricks"
-        android:layout_width="0dp"
+        android:layout_width="75dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="16dp"
         android:layout_marginTop="8dp"
         android:hint="@string/edit_declarer_tricks"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@+id/edtTextContract"
         app:layout_constraintLeft_toRightOf="@+id/tvDeclarerTricks"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtTextContract"/>
+        android:layout_marginLeft="8dp"/>
 
     <EditText
         android:id="@+id/edtOppsPairs"

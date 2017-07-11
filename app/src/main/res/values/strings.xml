@@ -8,7 +8,7 @@
     <string name="edit_result">Enter NS result</string>
     <string name="declarer">Declarer</string>
     <string name="edit_declarer">Enter declarer (N, E, S, W)</string>
-    <string name="declarer_tricks">Declarer tricks (-1, 0, 1)</string>
+    <string name="declarer_tricks">Tricks (-1, 0, 1)</string>
     <string name="edit_declarer_tricks">Enter declarer tricks</string>
     <string name="contract">Board Contract</string>
     <string name="edt_contract">Enter contract</string>

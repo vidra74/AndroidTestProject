@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.UUID;
@@ -37,6 +38,7 @@ public class BoardFragment extends Fragment{
     private EditText mNSResult;
     private EditText mLead;
     private CheckBox mIsNS;
+    private TextView mTournamentUUID;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -187,6 +189,8 @@ public class BoardFragment extends Fragment{
             }
         });
 
+        mTournamentUUID = (TextView)v.findViewById(R.id.tvTournamentUUID);
+
         if (mBoard != null) {
             mBoardNo.setText(Integer.toString(mBoard.getTournamentBoardId()));
             mIsNS.setChecked(mBoard.isNS());
@@ -196,6 +200,7 @@ public class BoardFragment extends Fragment{
             mNSResult.setText(Integer.toString(mBoard.getNSResult()));
             mDeclarer.setText(mBoard.getDeclarer());
             mLead.setText(mBoard.getLead());
+            mTournamentUUID.setText(mBoard.getTournamentId().toString());
         }
 
         return v;
@@ -238,6 +243,10 @@ public class BoardFragment extends Fragment{
                 toast.show();
                 TournamentBoards.get(getActivity()).deleteBoard(mBoard.getBoardId());
                 getActivity().finish();
+                return true;
+            case R.id.tournaments:
+                Intent intent = new Intent(getContext(), TournamentListActivity.class);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

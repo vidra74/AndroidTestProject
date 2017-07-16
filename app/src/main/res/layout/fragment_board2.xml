@@ -13,7 +13,7 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:text="@string/result"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtDeclarerTricks"
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:hint="@string/edit_result"
         app:layout_constraintLeft_toRightOf="@+id/tvNSResult"
         app:layout_constraintRight_toRightOf="parent"
@@ -37,7 +37,7 @@
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:text="@string/lead"
         app:layout_constraintLeft_toRightOf="@+id/edtDeclarerTricks"
         app:layout_constraintTop_toBottomOf="@+id/edtTextContract"/>
@@ -48,18 +48,19 @@
         android:layout_height="50dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:hint="@string/edt_lead"
         app:layout_constraintLeft_toRightOf="@+id/tvLead"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtTextContract"/>
+        app:layout_constraintTop_toBottomOf="@+id/edtTextContract"
+        app:layout_constraintHorizontal_bias="0.0"/>
 
     <TextView
         android:id="@+id/tvBoardNo"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/board_number"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -69,19 +70,20 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="0dp"
         android:text="@string/check_isns"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/etBoardNo"
-        android:layout_marginLeft="8dp"/>
+        android:layout_marginLeft="8dp"
+        app:layout_constraintHorizontal_bias="0.0"/>
 
     <TextView
         android:id="@+id/tvDeclarer"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:text="@string/declarer"
         app:layout_constraintLeft_toRightOf="@+id/edtOppsPairs"
         app:layout_constraintTop_toBottomOf="@+id/etBoardNo"/>
@@ -92,7 +94,7 @@
         android:layout_height="50dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:hint="@string/edit_declarer"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toRightOf="@+id/tvDeclarer"
@@ -104,7 +106,7 @@
         android:layout_width="75dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="0dp"
         android:hint="@string/edit_board_number"
         android:inputType="number"
         app:layout_constraintLeft_toRightOf="@+id/tvBoardNo"
@@ -116,7 +118,7 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:text="@string/contract"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtDeclarer"/>
@@ -127,7 +129,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:hint="@string/edt_contract"
         app:layout_constraintLeft_toRightOf="@+id/tvContract"
         app:layout_constraintRight_toRightOf="parent"
@@ -139,7 +141,7 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:text="@string/declarer_tricks"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtTextContract"/>
@@ -148,7 +150,7 @@
         android:id="@+id/edtDeclarerTricks"
         android:layout_width="75dp"
         android:layout_height="50dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:hint="@string/edit_declarer_tricks"
         app:layout_constraintTop_toBottomOf="@+id/edtTextContract"
         app:layout_constraintLeft_toRightOf="@+id/tvDeclarerTricks"
@@ -158,9 +160,8 @@
         android:id="@+id/edtOppsPairs"
         android:layout_width="75dp"
         android:layout_height="47dp"
-        android:layout_marginBottom="0dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:hint="@string/edit_opps_pair_number"
         app:layout_constraintLeft_toRightOf="@+id/tvOppsPairs"
         app:layout_constraintTop_toBottomOf="@+id/etBoardNo"/>
@@ -170,9 +171,21 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:text="@string/opps_pair_number"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etBoardNo"/>
+
+    <TextView
+        android:id="@+id/tvTournamentUUID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@+id/edtNSResult"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>

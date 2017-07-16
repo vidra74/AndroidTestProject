@@ -1,3 +1,13 @@
+2017.07.16:	Tournament object.
+		TournamentList Activity and Fragment.
+		Menu option for list of tournaments.
+		RecyclerView implemented for TournamentList fragment.
+		AsyncTask for fetching tournaments from internet.
+		Loading tournament data from http://franojancic.com/skola_bridza/json_turniri.php.
+		activity_tournaments layout.
+		fragment_tournament layout.
+		list_item_tournament layout.
+
 2017.07.11:	Entry integer value error corrected: tryStrtoInt().
 		New layout for board fragment.
 

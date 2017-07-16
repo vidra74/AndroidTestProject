@@ -12,10 +12,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -37,7 +35,7 @@ public class TournamentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.fragment_tournaments, container, false);
+        View v = inflater.inflate(R.layout.fragment_tournament_boards, container, false);
 
         mTournamentRecyclerView = (RecyclerView)v.findViewById(R.id.tournamet_recycler_view);
         mTournamentRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

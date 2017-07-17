@@ -22,4 +22,19 @@ public class BridgeBoardsSchema {
             public static final String NSRESULT     = "ns_result";
         }
     }
+
+    public static final class Tournaments {
+        public static final String NAME = "tournaments";
+
+        public static final class Cols {
+            public static final String ID           = "id";
+            public static final String TUUID        = "tournament_uuid";
+            public static final String DATE         = "pair_no";
+            public static final String TIME         = "opps_pair_no";
+            public static final String CLUB         = "is_ns";
+            public static final String SCORING      = "contract";
+            public static final String BOARDNUMBER  = "board_t_no";
+            public static final String STATUS       = "lead";
+        }
+    }
 }

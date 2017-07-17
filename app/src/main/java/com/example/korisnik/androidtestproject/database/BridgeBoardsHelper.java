@@ -4,7 +4,6 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.korisnik.androidtestproject.Board;
 import com.example.korisnik.androidtestproject.database.BridgeBoardsSchema.BoardsTable;
 
 public class BridgeBoardsHelper extends SQLiteOpenHelper {
@@ -32,6 +31,19 @@ public class BridgeBoardsHelper extends SQLiteOpenHelper {
                 BoardsTable.Cols.NSRESULT +
                 ")"
         );
+
+        db.execSQL("create table " + BridgeBoardsSchema.Tournaments.NAME + "(" +
+                " _id integer primary key autoincrement, " +
+                BridgeBoardsSchema.Tournaments.Cols.ID + ", " +
+                BridgeBoardsSchema.Tournaments.Cols.DATE + ", " +
+                BridgeBoardsSchema.Tournaments.Cols.TIME + ", " +
+                BridgeBoardsSchema.Tournaments.Cols.CLUB + ", " +
+                BridgeBoardsSchema.Tournaments.Cols.SCORING  + ", " +
+                BridgeBoardsSchema.Tournaments.Cols.BOARDNUMBER  + ", " +
+                BridgeBoardsSchema.Tournaments.Cols.STATUS + ", " +
+                BridgeBoardsSchema.Tournaments.Cols.TUUID +
+                ")"
+        );
     }
 
     @Override
@@ -42,6 +54,22 @@ public class BridgeBoardsHelper extends SQLiteOpenHelper {
             db.execSQL("ALTER TABLE " + BoardsTable.NAME + "ADD COLUMN " + BoardsTable.Cols.DECTRICKS + " integer");
             db.execSQL("ALTER TABLE " + BoardsTable.NAME + "ADD COLUMN " + BoardsTable.Cols.NSRESULT + " integer");
         }
+
+        if (oldVersion < 3) {
+            db.execSQL("create table " + BridgeBoardsSchema.Tournaments.NAME + "(" +
+                    " _id integer primary key autoincrement, " +
+                    BridgeBoardsSchema.Tournaments.Cols.ID + ", " +
+                    BridgeBoardsSchema.Tournaments.Cols.DATE + ", " +
+                    BridgeBoardsSchema.Tournaments.Cols.TIME + ", " +
+                    BridgeBoardsSchema.Tournaments.Cols.CLUB + ", " +
+                    BridgeBoardsSchema.Tournaments.Cols.SCORING  + ", " +
+                    BridgeBoardsSchema.Tournaments.Cols.BOARDNUMBER  + ", " +
+                    BridgeBoardsSchema.Tournaments.Cols.STATUS + ", " +
+                    BridgeBoardsSchema.Tournaments.Cols.TUUID +
+                    ")"
+            );
+        }
+
     }
 }
 

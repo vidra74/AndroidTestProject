@@ -4,6 +4,7 @@ import android.database.Cursor;
 import android.database.CursorWrapper;
 
 import com.example.korisnik.androidtestproject.Board;
+import com.example.korisnik.androidtestproject.Tournament;
 
 import java.util.UUID;
 
@@ -42,4 +43,5 @@ public class BridgeBoardsCursorWrapper extends CursorWrapper{
 
         return lBoard;
     }
+
 }

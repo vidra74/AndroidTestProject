@@ -1,9 +1,13 @@
+2017.07.17:	CursorWrapper for tournamnet table
+		BridgeBoardsHelper extended for tournamnet table
+		BridgeBoardsSchema extender for tournamnet table
+
 2017.07.16:	Tournament object.
 		TournamentList Activity and Fragment.
 		Menu option for list of tournaments.
 		RecyclerView implemented for TournamentList fragment.
 		AsyncTask for fetching tournaments from internet.
-		Loading tournament data from http://franojancic.com/skola_bridza/json_turniri.php.
+		Loading tournament data from json_turniri.php.
 		activity_tournaments layout.
 		fragment_tournament layout.
 		list_item_tournament layout.

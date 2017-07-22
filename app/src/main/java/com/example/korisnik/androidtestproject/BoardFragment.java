@@ -38,6 +38,7 @@ public class BoardFragment extends Fragment{
     private EditText mNSResult;
     private EditText mLead;
     private CheckBox mIsNS;
+    private CheckBox mIsBye;
     private TextView mTournamentUUID;
 
     @Override
@@ -189,6 +190,15 @@ public class BoardFragment extends Fragment{
             }
         });
 
+        mIsBye = (CheckBox) v.findViewById(R.id.checkedBye);
+
+        mIsBye.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                mBoard.setBye(isChecked);
+            }
+        });
+
         mTournamentUUID = (TextView)v.findViewById(R.id.tvTournamentUUID);
 
         if (mBoard != null) {
@@ -201,6 +211,7 @@ public class BoardFragment extends Fragment{
             mDeclarer.setText(mBoard.getDeclarer());
             mLead.setText(mBoard.getLead());
             mTournamentUUID.setText(mBoard.getTournamentId().toString());
+            mIsBye.setChecked(mBoard.isBye());
         }
 
         return v;

@@ -6,7 +6,7 @@
     <string name="edit_opps_pair_number">Enter opponents pair number in tournament</string>
     <string name="result">NS result (minus value is EW entry)</string>
     <string name="edit_result">Enter NS result</string>
-    <string name="declarer">Declarer</string>
+    <string name="declarer">Dec.</string>
     <string name="edit_declarer">Enter declarer (N, E, S, W)</string>
     <string name="declarer_tricks">Tricks (-1, 0, 1)</string>
     <string name="edit_declarer_tricks">Enter declarer tricks</string>
@@ -15,6 +15,7 @@
     <string name="lead">Lead</string>
     <string name="edt_lead">Enter lead</string>
     <string name="check_isns">Are we NS pair?</string>
+    <string name="check_bye">Are we Bye?</string>
     <string name="new_board">New Board</string>
     <string name="delete_board">Remove Board</string>
     <string name="tournamnent_item">Tournament downloading...</string>

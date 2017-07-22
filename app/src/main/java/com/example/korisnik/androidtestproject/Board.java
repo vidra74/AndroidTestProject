@@ -19,6 +19,16 @@ public class Board {
     private int mDeclarerTricksToContract;
     private int mNSResult;
 
+    public boolean isBye() {
+        return mBye;
+    }
+
+    public void setBye(boolean pBye) {
+        mBye = pBye;
+    }
+
+    private boolean mBye;
+
     public UUID getTournamentId() {
         return mTournamentId;
     }

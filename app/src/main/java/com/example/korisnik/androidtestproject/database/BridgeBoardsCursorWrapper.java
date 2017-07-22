@@ -29,6 +29,7 @@ public class BridgeBoardsCursorWrapper extends CursorWrapper{
         String lead = getString(getColumnIndex(BridgeBoardsSchema.BoardsTable.Cols.LEAD));
         int dec_tricks = getInt(getColumnIndex(BridgeBoardsSchema.BoardsTable.Cols.DECTRICKS));
         int resultNS = getInt(getColumnIndex(BridgeBoardsSchema.BoardsTable.Cols.NSRESULT));
+        boolean is_bye = (getInt(getColumnIndex(BridgeBoardsSchema.BoardsTable.Cols.ISBYE)) == 1);
 
         Board lBoard = new Board(UUID.fromString(tuuidString), pair_no);
         lBoard.setBoardId(UUID.fromString(buuidString));
@@ -40,6 +41,7 @@ public class BridgeBoardsCursorWrapper extends CursorWrapper{
         lBoard.setDeclarerTricksToContract(dec_tricks);
         lBoard.setLead(lead);
         lBoard.setNSResult(resultNS);
+        lBoard.setBye(is_bye);
 
         return lBoard;
     }

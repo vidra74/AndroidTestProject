@@ -20,6 +20,7 @@ public class BridgeBoardsSchema {
             public static final String DECLARER     = "declarer";
             public static final String DECTRICKS    = "declarer_tricks";
             public static final String NSRESULT     = "ns_result";
+            public static final String ISBYE        = "is_bye";
         }
     }
 

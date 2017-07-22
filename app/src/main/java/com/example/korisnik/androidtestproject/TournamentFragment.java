@@ -93,7 +93,13 @@ public class TournamentFragment extends Fragment {
             // ako uđe int onda Andorid traži R.id sa intom i to puca pa zato int u setText treba castati
             mBoardNo.setText(Integer.toString(mBoard.getTournamentBoardId()));
             mContract.setText(mBoard.getContract());
-            mNS.setVisibility(mBoard.isNS() ? View.VISIBLE : View.GONE);
+            if (mBoard.isBye()){
+                mNS.setImageResource(R.drawable.ic_solved);
+                mNS.setVisibility(View.VISIBLE);
+            } else {
+                mNS.setImageResource(android.R.drawable.ic_menu_compass);
+                mNS.setVisibility(mBoard.isNS() ? View.VISIBLE : View.GONE);
+            }
         }
 
         @Override

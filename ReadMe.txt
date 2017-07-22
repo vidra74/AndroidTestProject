@@ -1,3 +1,7 @@
+2017.07.22:	Added is_bye field do Board table.
+		Bye checkbox added to layout for board.
+		Bye icon handled for list_item_board.
+
 2017.07.17:	CursorWrapper for tournamnet table
 		BridgeBoardsHelper extended for tournamnet table
 		BridgeBoardsSchema extender for tournamnet table

@@ -24,6 +24,7 @@ import static com.example.korisnik.androidtestproject.database.BridgeBoardsSchem
 import static com.example.korisnik.androidtestproject.database.BridgeBoardsSchema.BoardsTable.Cols.ISNS;
 import static com.example.korisnik.androidtestproject.database.BridgeBoardsSchema.BoardsTable.Cols.CONTRACT;
 import static com.example.korisnik.androidtestproject.database.BridgeBoardsSchema.BoardsTable.Cols.BOARDNO;
+import static com.example.korisnik.androidtestproject.database.BridgeBoardsSchema.BoardsTable.Cols.ISBYE;
 
 /**
  * Created by Korisnik on 8.7.2017..
@@ -66,7 +67,7 @@ public class TournamentBoards {
             pBoard.setTournamentId(mTournamentID);
         }
         if (pBoard.getTournamentBoardId() == 0){
-            BridgeBoardsCursorWrapper cursor = queryBoards(null, null);
+            BridgeBoardsCursorWrapper cursor = queryBoards(BridgeBoardsSchema.BoardsTable.Cols.TUUID + " = ?", new String[]{mTournamentID.toString()});
             mNumberOfBoards = cursor.getCount() + 1;
             cursor.close();
             pBoard.setTournamentBoardId(mNumberOfBoards);
@@ -100,12 +101,12 @@ public class TournamentBoards {
     private TournamentBoards(Context pContext){
         mContext = pContext.getApplicationContext();
         mDatabase = new BridgeBoardsHelper(mContext).getWritableDatabase();
-        mTournamentID = UUID.randomUUID();
+        mTournamentID = UUID.fromString("2c85d6d5-029a-4556-8899-d7d3ea014617");
     }
 
     public List<Board> getTournamentBoards(){
         List<Board> lBoards = new ArrayList<>();
-        BridgeBoardsCursorWrapper cursor = queryBoards(null, null);
+        BridgeBoardsCursorWrapper cursor = queryBoards(BridgeBoardsSchema.BoardsTable.Cols.TUUID + " = ?", new String[]{mTournamentID.toString()});
 
         try{
             mNumberOfBoards = cursor.getCount();
@@ -161,6 +162,7 @@ public class TournamentBoards {
         values.put(LEAD, pBoard.getLead());
         values.put(DECTRICKS, pBoard.getDeclarerTricksToContract());
         values.put(NSRESULT, pBoard.getNSResult());
+        values.put(ISBYE, pBoard.isBye());
 
         return values;
     }

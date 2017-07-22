@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.example.korisnik.androidtestproject.database.BridgeBoardsSchema.BoardsTable;
 
 public class BridgeBoardsHelper extends SQLiteOpenHelper {
-    private static final int VERSION = 2;
+    private static final int VERSION = 4;
     private static final String DATABASE_NAME = "bridgeBoards.db";
 
     public BridgeBoardsHelper(Context context) {
@@ -28,6 +28,7 @@ public class BridgeBoardsHelper extends SQLiteOpenHelper {
                 BoardsTable.Cols.DECLARER + ", " +
                 BoardsTable.Cols.DECTRICKS + ", " +
                 BoardsTable.Cols.LEAD + ", " +
+                BoardsTable.Cols.ISBYE  + ", " +
                 BoardsTable.Cols.NSRESULT +
                 ")"
         );
@@ -68,6 +69,10 @@ public class BridgeBoardsHelper extends SQLiteOpenHelper {
                     BridgeBoardsSchema.Tournaments.Cols.TUUID +
                     ")"
             );
+        }
+
+        if (oldVersion < 4) {
+            db.execSQL("ALTER TABLE " + BoardsTable.NAME + "ADD COLUMN " + BoardsTable.Cols.ISBYE + " integer");
         }
 
     }

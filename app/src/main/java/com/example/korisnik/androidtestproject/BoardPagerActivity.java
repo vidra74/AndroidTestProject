@@ -58,9 +58,10 @@ public class BoardPagerActivity extends AppCompatActivity {
         }
     }
 
-    public static Intent newIntent(Context packageContext, UUID pBoardUUID){
+    public static Intent newIntent(Context packageContext, UUID pBoardUUID, UUID pTourneyUUID){
         Intent intent = new Intent(packageContext, BoardPagerActivity.class);
         intent.putExtra(EXTRA_BOARD_UUID, pBoardUUID);
+        intent.putExtra(EXTRA_TOURNEY_UUID, pTourneyUUID);
         return intent;
     }
 }

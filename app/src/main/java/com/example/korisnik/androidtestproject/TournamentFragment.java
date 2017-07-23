@@ -74,7 +74,7 @@ public class TournamentFragment extends Fragment {
             case R.id.new_board:
                 Board lBoard = new Board(TournamentBoards.get(getActivity(), mTournamentSelectedUUID).mTournamentID, 1);
                 TournamentBoards.get(getActivity(), lBoard.getTournamentId()).addBoard(lBoard);
-                Intent intent = BoardPagerActivity.newIntent(getActivity(), lBoard.getBoardId());
+                Intent intent = BoardPagerActivity.newIntent(getActivity(), lBoard.getBoardId(), mTournamentSelectedUUID);
                 startActivity(intent);
                 return true;
             default:
@@ -115,7 +115,7 @@ public class TournamentFragment extends Fragment {
 
         @Override
         public void onClick(View pView) {
-            Intent intent = BoardPagerActivity.newIntent(getActivity(), mBoard.getBoardId());
+            Intent intent = BoardPagerActivity.newIntent(getActivity(), mBoard.getBoardId(), mBoard.getTournamentId());
             startActivity(intent);
         }
     }

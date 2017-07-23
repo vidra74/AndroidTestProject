@@ -125,6 +125,7 @@ public class Board {
         this.mNSResult = 0;
         this.mDeclarerTricksToContract = 0;
         this.mNS = false;
+        this.mBye = false;
     }
 
 }

@@ -106,8 +106,8 @@ public class TournamentBoards {
         mContext = pContext.getApplicationContext();
         mDatabase = new BridgeBoardsHelper(mContext).getWritableDatabase();
         // mTournamentID = UUID.fromString("a35bdb8b-0214-4a3b-adb8-18f0d0091bba");
-        if (pTournamentUUID.equals(null)){
-            mTournamentID = UUID.fromString("a35bdb8b-0214-4a3b-adb8-18f0d0091bba");
+        if (pTournamentUUID == null){
+            mTournamentID = UUID.randomUUID();
         } else{
             mTournamentID = pTournamentUUID;
         }

@@ -1,5 +1,6 @@
 package com.example.korisnik.androidtestproject;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by Korisnik on 8.7.2017..
@@ -24,11 +26,20 @@ import java.util.List;
 public class TournamentFragment extends Fragment {
     private RecyclerView mTournamentRecyclerView;
     private BoardAdapter mBoardAdapter;
+    private UUID mTournamentSelectedUUID;
+    private static final String EXTRA_TOURNAMENT_UUID = "com.example.korisnik.androidtestproject.tournament_uuid";
+
+    public static Intent newIntent(Context packageContext, String tournamentUUID){
+        Intent intent = new Intent(packageContext, TournamentActivity.class);
+        intent.putExtra(EXTRA_TOURNAMENT_UUID, tournamentUUID);
+        return intent;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        mTournamentSelectedUUID = UUID.fromString(getActivity().getIntent().getStringExtra(EXTRA_TOURNAMENT_UUID));
     }
 
     @Nullable
@@ -61,8 +72,8 @@ public class TournamentFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
             case R.id.new_board:
-                Board lBoard = new Board(TournamentBoards.get(getActivity()).mTournamentID, 1);
-                TournamentBoards.get(getActivity()).addBoard(lBoard);
+                Board lBoard = new Board(TournamentBoards.get(getActivity(), mTournamentSelectedUUID).mTournamentID, 1);
+                TournamentBoards.get(getActivity(), lBoard.getTournamentId()).addBoard(lBoard);
                 Intent intent = BoardPagerActivity.newIntent(getActivity(), lBoard.getBoardId());
                 startActivity(intent);
                 return true;
@@ -140,7 +151,7 @@ public class TournamentFragment extends Fragment {
     }
 
     private void updateUI(){
-        TournamentBoards lTournamentBoards = TournamentBoards.get(getActivity());
+        TournamentBoards lTournamentBoards = TournamentBoards.get(getActivity(), mTournamentSelectedUUID);
         List<Board> lBoards = lTournamentBoards.getTournamentBoards();
 
         if (mBoardAdapter == null) {

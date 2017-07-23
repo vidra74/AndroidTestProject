@@ -1,3 +1,10 @@
+2017.07.23	Solved bug with SQL upgrade code for BridgeBoards.db database in BridgeBaseHelper java class.
+		Tournament list made starting activity.
+		Board list singleton accepts Tournament UUID as parameter.
+		Menu option for tournament list is deleted.
+		TODO: Change data
+		TODO: Check if UUID is ok
+
 2017.07.22:	Added is_bye field do Board table.
 		Bye checkbox added to layout for board.
 		Bye icon handled for list_item_board.

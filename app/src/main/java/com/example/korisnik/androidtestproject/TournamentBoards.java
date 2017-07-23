@@ -38,9 +38,13 @@ public class TournamentBoards {
     public static UUID mTournamentID;
     private static int mNumberOfBoards;
 
-    public static TournamentBoards get(Context pContext){
+    public static TournamentBoards get(Context pContext, UUID pTournamentUUID){
         if (sTournament == null){
-            sTournament = new TournamentBoards(pContext);
+            sTournament = new TournamentBoards(pContext, pTournamentUUID);
+        } else {
+            if (!sTournament.mTournamentID.equals(pTournamentUUID)) {
+                sTournament = new TournamentBoards(pContext, pTournamentUUID);
+            }
         }
         return sTournament;
     }
@@ -98,10 +102,15 @@ public class TournamentBoards {
                             new String[] {pBoardUUID.toString()});
     }
 
-    private TournamentBoards(Context pContext){
+    private TournamentBoards(Context pContext, UUID pTournamentUUID){
         mContext = pContext.getApplicationContext();
         mDatabase = new BridgeBoardsHelper(mContext).getWritableDatabase();
-        mTournamentID = UUID.fromString("a35bdb8b-0214-4a3b-adb8-18f0d0091bba");
+        // mTournamentID = UUID.fromString("a35bdb8b-0214-4a3b-adb8-18f0d0091bba");
+        if (pTournamentUUID.equals(null)){
+            mTournamentID = UUID.fromString("a35bdb8b-0214-4a3b-adb8-18f0d0091bba");
+        } else{
+            mTournamentID = pTournamentUUID;
+        }
     }
 
     public List<Board> getTournamentBoards(){

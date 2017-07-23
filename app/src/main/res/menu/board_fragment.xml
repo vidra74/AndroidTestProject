@@ -5,8 +5,4 @@
           android:icon="@android:drawable/ic_menu_delete"
           android:title="@string/delete_board"
           app:showAsAction="ifRoom|withText" />
-    <item android:id="@+id/tournaments"
-          android:icon="@android:drawable/ic_menu_recent_history"
-          android:title="@string/get_tournaments"
-          app:showAsAction="ifRoom|withText" />
 </menu>

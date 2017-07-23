@@ -28,6 +28,7 @@ import static android.widget.CompoundButton.*;
 
 public class BoardFragment extends Fragment{
     private static final String ARG_BOARD_UUID = "board_uuid";
+    private static final String ARG_TOURNEY_UUID = "tourney_uuid";
 
     private Board mBoard;
     private EditText mBoardNo;
@@ -44,8 +45,9 @@ public class BoardFragment extends Fragment{
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        UUID lTournamnentUUID = (UUID)getArguments().getSerializable(ARG_TOURNEY_UUID);
         UUID lUUID = (UUID)getArguments().getSerializable(ARG_BOARD_UUID);
-        mBoard = TournamentBoards.get(getActivity()).getBoard(lUUID);
+        mBoard = TournamentBoards.get(getActivity(), lTournamnentUUID).getBoard(lUUID);
         setHasOptionsMenu(true);
     }
 
@@ -231,10 +233,10 @@ public class BoardFragment extends Fragment{
 
     }
 
-    public static BoardFragment newInstance(UUID pBoardUUID){
+    public static BoardFragment newInstance(UUID pBoardUUID, UUID pTourneyUUID){
         Bundle args = new Bundle();
         args.putSerializable(ARG_BOARD_UUID, pBoardUUID);
-
+        args.putSerializable(ARG_TOURNEY_UUID, pTourneyUUID);
         BoardFragment lBoardFragment = new BoardFragment();
         lBoardFragment.setArguments(args);
         return lBoardFragment;
@@ -252,12 +254,8 @@ public class BoardFragment extends Fragment{
             case R.id.delete_board:
                 Toast toast = Toast.makeText(getContext(), "Board deleted", Toast.LENGTH_SHORT);
                 toast.show();
-                TournamentBoards.get(getActivity()).deleteBoard(mBoard.getBoardId());
+                TournamentBoards.get(getActivity(), mBoard.getTournamentId()).deleteBoard(mBoard.getBoardId());
                 getActivity().finish();
-                return true;
-            case R.id.tournaments:
-                Intent intent = new Intent(getContext(), TournamentListActivity.class);
-                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -268,6 +266,6 @@ public class BoardFragment extends Fragment{
     public void onPause() {
         super.onPause();
         // update when fragment is done
-        TournamentBoards.get(getActivity()).updateBoard(mBoard);
+        TournamentBoards.get(getActivity(), mBoard.getTournamentId()).updateBoard(mBoard);
     }
 }

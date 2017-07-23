@@ -1,5 +1,6 @@
 package com.example.korisnik.androidtestproject;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -97,8 +98,14 @@ public class TournamentListFragment extends Fragment {
 
         @Override
         public void onClick(View pView) {
-            Toast newToast = Toast.makeText(getContext(), mTournament.getDate(), Toast.LENGTH_SHORT);
-            newToast.show();
+            if (mTournament.getTurnirUUID().toString().equals(null)) {
+                Toast newToast = Toast.makeText(getContext(), mTournament.getDate(), Toast.LENGTH_SHORT);
+                newToast.show();
+            } else {
+                // OPERACIJA POCETNI PROZOR
+                Intent intent = TournamentFragment.newIntent(getContext(), mTournament.getTurnirUUID().toString());
+                startActivity(intent);
+            }
         }
     }
 

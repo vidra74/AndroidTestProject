@@ -23,22 +23,23 @@ public class BoardPagerActivity extends AppCompatActivity {
     private List<Board> mBoards;
 
     private static final String EXTRA_BOARD_UUID = "com.example.korisnik.androidtestproject.board_uuid";
-
+    private static final String EXTRA_TOURNEY_UUID = "com.example.korisnik.androidtestproject.tourney_uuid";
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_board_pager);
 
         UUID lBoardUUID = (UUID)getIntent().getSerializableExtra(EXTRA_BOARD_UUID);
+        UUID lTourneyUUID = (UUID)getIntent().getSerializableExtra(EXTRA_TOURNEY_UUID);
         mViewPager = (ViewPager)findViewById(R.id.board_view_pager);
 
-        mBoards = TournamentBoards.get(this).getTournamentBoards();
+        mBoards = TournamentBoards.get(this, lTourneyUUID).getTournamentBoards();
         FragmentManager lFM = getSupportFragmentManager();
         mViewPager.setAdapter(new FragmentStatePagerAdapter(lFM) {
             @Override
             public Fragment getItem(int position) {
                 Board lBoard = mBoards.get(position);
-                return BoardFragment.newInstance(lBoard.getBoardId());
+                return BoardFragment.newInstance(lBoard.getBoardId(), lBoard.getTournamentId());
             }
 
             @Override

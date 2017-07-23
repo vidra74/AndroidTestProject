@@ -50,10 +50,10 @@ public class BridgeBoardsHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         if (oldVersion < 2) {
-            db.execSQL("ALTER TABLE " + BoardsTable.NAME + "ADD COLUMN " + BoardsTable.Cols.DECLARER + " string");
-            db.execSQL("ALTER TABLE " + BoardsTable.NAME + "ADD COLUMN " + BoardsTable.Cols.LEAD + " string");
-            db.execSQL("ALTER TABLE " + BoardsTable.NAME + "ADD COLUMN " + BoardsTable.Cols.DECTRICKS + " integer");
-            db.execSQL("ALTER TABLE " + BoardsTable.NAME + "ADD COLUMN " + BoardsTable.Cols.NSRESULT + " integer");
+            db.execSQL("ALTER TABLE " + BoardsTable.NAME + " ADD COLUMN " + BoardsTable.Cols.DECLARER + " string");
+            db.execSQL("ALTER TABLE " + BoardsTable.NAME + " ADD COLUMN " + BoardsTable.Cols.LEAD + " string");
+            db.execSQL("ALTER TABLE " + BoardsTable.NAME + " ADD COLUMN " + BoardsTable.Cols.DECTRICKS + " integer");
+            db.execSQL("ALTER TABLE " + BoardsTable.NAME + " ADD COLUMN " + BoardsTable.Cols.NSRESULT + " integer");
         }
 
         if (oldVersion < 3) {
@@ -72,7 +72,7 @@ public class BridgeBoardsHelper extends SQLiteOpenHelper {
         }
 
         if (oldVersion < 4) {
-            db.execSQL("ALTER TABLE " + BoardsTable.NAME + "ADD COLUMN " + BoardsTable.Cols.ISBYE + " integer");
+            db.execSQL("ALTER TABLE " + BoardsTable.NAME + " ADD COLUMN " + BoardsTable.Cols.ISBYE + " integer");
         }
 
     }

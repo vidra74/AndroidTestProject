@@ -101,7 +101,7 @@ public class TournamentBoards {
     private TournamentBoards(Context pContext){
         mContext = pContext.getApplicationContext();
         mDatabase = new BridgeBoardsHelper(mContext).getWritableDatabase();
-        mTournamentID = UUID.fromString("2c85d6d5-029a-4556-8899-d7d3ea014617");
+        mTournamentID = UUID.fromString("a35bdb8b-0214-4a3b-adb8-18f0d0091bba");
     }
 
     public List<Board> getTournamentBoards(){

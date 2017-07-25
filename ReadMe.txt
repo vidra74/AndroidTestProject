@@ -1,3 +1,6 @@
+2017.07.25	Board layout tuning.
+		Bridge score calculated automatically.
+
 2017.07.23	Solved bug with SQL upgrade code for BridgeBoards.db database in BridgeBaseHelper java class.
 		Tournament list made starting activity.
 		Board list singleton accepts Tournament UUID as parameter.

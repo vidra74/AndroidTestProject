@@ -99,7 +99,7 @@ public class TournamentListFragment extends Fragment {
         @Override
         public void onClick(View pView) {
             if (mTournament.getTurnirUUID() == null) {
-                Toast newToast = Toast.makeText(getContext(), mTournament.getDate(), Toast.LENGTH_SHORT);
+                Toast newToast = Toast.makeText(getContext(), (mTournament.getDate() + " is not proper tournament"), Toast.LENGTH_SHORT);
                 newToast.show();
             } else {
                 // OPERACIJA POCETNI PROZOR

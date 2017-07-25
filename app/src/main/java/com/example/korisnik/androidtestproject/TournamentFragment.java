@@ -103,7 +103,7 @@ public class TournamentFragment extends Fragment {
             mBoard = pBoard;
             // ako uđe int onda Andorid traži R.id sa intom i to puca pa zato int u setText treba castati
             mBoardNo.setText(Integer.toString(mBoard.getTournamentBoardId()));
-            mContract.setText(mBoard.getContract());
+            mContract.setText(Integer.toString(mBoard.getNSResult()));
             if (mBoard.isBye()){
                 mNS.setImageResource(R.drawable.ic_solved);
                 mNS.setVisibility(View.VISIBLE);

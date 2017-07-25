@@ -84,7 +84,7 @@ public class BoardFragment extends Fragment{
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                mBoard.setContract(s.toString());
+                mBoard.setContract(s.toString().toUpperCase());
             }
 
             @Override
@@ -156,7 +156,7 @@ public class BoardFragment extends Fragment{
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                mBoard.setDeclarer(s.toString());
+                mBoard.setDeclarer(s.toString().toUpperCase());
             }
 
             @Override
@@ -174,7 +174,7 @@ public class BoardFragment extends Fragment{
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                mBoard.setLead(s.toString());
+                mBoard.setLead(s.toString().toUpperCase());
             }
 
             @Override

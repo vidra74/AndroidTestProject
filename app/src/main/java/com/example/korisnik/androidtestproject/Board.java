@@ -240,18 +240,18 @@ public class Board {
             } else {
                 if (nZona == 1) {
                     if (bXX) {
-                        nBridgeResult = (-1) * xx1[abs(mDeclarerTricksToContract)];
+                        nBridgeResult = (-1) * xx1[abs(mDeclarerTricksToContract)-1];
                     } else if (bX) {
-                        nBridgeResult = (-1) * x1[abs(mDeclarerTricksToContract)];
+                        nBridgeResult = (-1) * x1[abs(mDeclarerTricksToContract)-1];
                     } else {
                         nBridgeResult = 100 * mDeclarerTricksToContract;
                     }
 
                 } else {
                     if (bXX) {
-                        nBridgeResult = (-1) * xx0[abs(mDeclarerTricksToContract)];
+                        nBridgeResult = (-1) * xx0[abs(mDeclarerTricksToContract)-1];
                     } else if (bX) {
-                        nBridgeResult = (-1) * x0[abs(mDeclarerTricksToContract)];
+                        nBridgeResult = (-1) * x0[abs(mDeclarerTricksToContract)-1];
                     } else {
                         nBridgeResult = 50 * mDeclarerTricksToContract;
                     }

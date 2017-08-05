@@ -1,3 +1,8 @@
+2017.08.05	New layout for board presentation.
+		BoardShowActivity created.
+		BoardShowFragment created.
+		Show board item added to menu boardfragment.xml.
+
 2017.07.25	Board layout tuning.
 		Bridge score calculated automatically.
 

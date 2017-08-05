@@ -18,6 +18,7 @@
     <string name="check_bye">Are we Bye?</string>
     <string name="new_board">New Board</string>
     <string name="delete_board">Remove Board</string>
+    <string name="show_board">Show Board</string>
     <string name="tournamnent_item">Tournament downloading...</string>
     <string name="get_tournaments">Get tournament list</string>
 </resources>

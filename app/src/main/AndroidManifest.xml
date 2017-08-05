@@ -18,6 +18,7 @@
         </activity>
         <activity android:name=".BoardPagerActivity" />
         <activity android:name=".TournamentActivity" />
+        <activity android:name=".BoardShowActivity" />
     </application>
 
 </manifest>

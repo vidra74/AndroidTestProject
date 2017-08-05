@@ -257,6 +257,12 @@ public class BoardFragment extends Fragment{
                 TournamentBoards.get(getActivity(), mBoard.getTournamentId()).deleteBoard(mBoard.getBoardId());
                 getActivity().finish();
                 return true;
+            case R.id.show_board:
+                Toast toastShow = Toast.makeText(getContext(), "Board showed", Toast.LENGTH_SHORT);
+                toastShow.show();
+                Intent intent = BoardShowActivity.newIntent(getActivity(), mBoard.getBoardId(), mBoard.getTournamentId());
+                startActivity(intent);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

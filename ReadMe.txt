@@ -1,3 +1,7 @@
+2017.08.06	New table TURNIRI_BORDOVI
+		Intent arguments used for transferring tournament and board UUID.
+		Board UUID presented on fragment board.
+
 2017.08.05	New layout for board presentation.
 		BoardShowActivity created.
 		BoardShowFragment created.

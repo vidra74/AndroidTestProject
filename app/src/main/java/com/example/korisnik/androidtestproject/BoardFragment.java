@@ -41,6 +41,7 @@ public class BoardFragment extends Fragment{
     private CheckBox mIsNS;
     private CheckBox mIsBye;
     private TextView mTournamentUUID;
+    private TextView mBoardUUID;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -202,6 +203,7 @@ public class BoardFragment extends Fragment{
         });
 
         mTournamentUUID = (TextView)v.findViewById(R.id.tvTournamentUUID);
+        mBoardUUID = (TextView)v.findViewById(R.id.tvBoardUUID);
 
         if (mBoard != null) {
             mBoardNo.setText(Integer.toString(mBoard.getTournamentBoardId()));
@@ -213,6 +215,7 @@ public class BoardFragment extends Fragment{
             mDeclarer.setText(mBoard.getDeclarer());
             mLead.setText(mBoard.getLead());
             mTournamentUUID.setText(mBoard.getTournamentId().toString());
+            mBoardUUID.setText(mBoard.getBoardId().toString());
             mIsBye.setChecked(mBoard.isBye());
         }
 

@@ -164,12 +164,6 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tvBoard2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Board dealer"/>
         </LinearLayout>
 
         <LinearLayout
@@ -209,12 +203,6 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tvBoard3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Board dealer"/>
         </LinearLayout>
     </LinearLayout>
 

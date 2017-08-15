@@ -1,3 +1,8 @@
+2017.08.15	New table IGRACI
+		CursorWrapper created, schema updated.
+		PlayerDevice class created.
+		PlayerDevice activity created.
+
 2017.08.06	New table TURNIRI_BORDOVI
 		Intent arguments used for transferring tournament and board UUID.
 		Board UUID presented on fragment board.

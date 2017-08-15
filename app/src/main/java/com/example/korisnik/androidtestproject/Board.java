@@ -21,6 +21,7 @@ public class Board {
     private String mContract;
     private int mDeclarerTricksToContract;
     private int mNSResult;
+    private String mDLM;
 
     public boolean isBye() {
         return mBye;
@@ -78,6 +79,14 @@ public class Board {
 
     public void setLead(String pLead) {
         mLead = pLead;
+    }
+
+    public String getDLM() {
+        return mDLM;
+    }
+
+    public void setDLM(String pLead) {
+        mDLM = pLead;
     }
 
     public String getDeclarer() {
@@ -141,6 +150,7 @@ public class Board {
         this.mDeclarerTricksToContract = 0;
         this.mNS = false;
         this.mBye = false;
+        this.mDLM = "";
     }
 
     public int bridgeResult(){
@@ -266,6 +276,21 @@ public class Board {
         }
         return nBridgeResult;
 
+    }
+
+    public String getNS(){
+        if (mDLM.isEmpty()){
+            return "";
+        }
+        return "K 0 0";
+    }
+
+    public int vratiPrvuPozicijuZnaka(char ch){
+        return 1;
+    }
+
+    public int vratiDruguPozicijuZnaka(char ch){
+        return 1;
     }
 
 }

@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.example.korisnik.androidtestproject.database.BridgeBoardsSchema.BoardsTable;
 
 public class BridgeBoardsHelper extends SQLiteOpenHelper {
-    private static final int VERSION = 4;
+    private static final int VERSION = 5;
     private static final String DATABASE_NAME = "bridgeBoards.db";
 
     public BridgeBoardsHelper(Context context) {
@@ -45,6 +45,19 @@ public class BridgeBoardsHelper extends SQLiteOpenHelper {
                 BridgeBoardsSchema.Tournaments.Cols.TUUID +
                 ")"
         );
+
+        db.execSQL("create table " + BridgeBoardsSchema.PlayerDevice.NAME + "(" +
+                " _id integer primary key autoincrement, " +
+                BridgeBoardsSchema.PlayerDevice.Cols.ID + " integer, " +
+                BridgeBoardsSchema.PlayerDevice.Cols.IME + " string, " +
+                BridgeBoardsSchema.PlayerDevice.Cols.PREZIME + " string, " +
+                BridgeBoardsSchema.PlayerDevice.Cols.MAIL + " string, " +
+                BridgeBoardsSchema.PlayerDevice.Cols.MOBITEL  + " string, " +
+                BridgeBoardsSchema.PlayerDevice.Cols.KLUB  + " integer, " +
+                BridgeBoardsSchema.PlayerDevice.Cols.AKTIVAN + " integer, " +
+                BridgeBoardsSchema.PlayerDevice.Cols.UUID + " string " +
+                ")"
+        );
     }
 
     @Override
@@ -73,6 +86,21 @@ public class BridgeBoardsHelper extends SQLiteOpenHelper {
 
         if (oldVersion < 4) {
             db.execSQL("ALTER TABLE " + BoardsTable.NAME + " ADD COLUMN " + BoardsTable.Cols.ISBYE + " integer");
+        }
+
+        if (oldVersion < 5) {
+            db.execSQL("create table " + BridgeBoardsSchema.PlayerDevice.NAME + "(" +
+                    " _id integer primary key autoincrement, " +
+                    BridgeBoardsSchema.PlayerDevice.Cols.ID + " integer, " +
+                    BridgeBoardsSchema.PlayerDevice.Cols.IME + " string, " +
+                    BridgeBoardsSchema.PlayerDevice.Cols.PREZIME + " string, " +
+                    BridgeBoardsSchema.PlayerDevice.Cols.MAIL + " string, " +
+                    BridgeBoardsSchema.PlayerDevice.Cols.MOBITEL  + " string, " +
+                    BridgeBoardsSchema.PlayerDevice.Cols.KLUB  + " integer, " +
+                    BridgeBoardsSchema.PlayerDevice.Cols.AKTIVAN + " integer, " +
+                    BridgeBoardsSchema.PlayerDevice.Cols.UUID  + " string " +
+                    ")"
+            );
         }
 
     }

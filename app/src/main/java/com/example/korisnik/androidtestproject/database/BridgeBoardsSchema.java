@@ -38,4 +38,19 @@ public class BridgeBoardsSchema {
             public static final String STATUS       = "lead";
         }
     }
+
+    public static final class PlayerDevice {
+        public static final String NAME = "igraci";
+
+        public static final class Cols{
+            public static final String ID           = "id";
+            public static final String IME          = "ime";
+            public static final String PREZIME      = "prezime";
+            public static final String MAIL         = "mail";
+            public static final String MOBITEL      = "mobitel";
+            public static final String KLUB         = "klub";
+            public static final String AKTIVAN      = "aktivan";
+            public static final String UUID         = "uuid";
+        }
+    }
 }

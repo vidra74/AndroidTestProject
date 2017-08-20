@@ -6,6 +6,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.korisnik.androidtestproject.database.BridgeBoardsSchema.BoardsTable;
 
+import java.util.UUID;
+
 public class BridgeBoardsHelper extends SQLiteOpenHelper {
     private static final int VERSION = 5;
     private static final String DATABASE_NAME = "bridgeBoards.db";
@@ -58,6 +60,12 @@ public class BridgeBoardsHelper extends SQLiteOpenHelper {
                 BridgeBoardsSchema.PlayerDevice.Cols.UUID + " string " +
                 ")"
         );
+
+        db.execSQL("INSERT INTO " + BridgeBoardsSchema.PlayerDevice.NAME +
+                    " [(" + BridgeBoardsSchema.PlayerDevice.Cols.ID +
+                    ", " + BridgeBoardsSchema.PlayerDevice.Cols.UUID +
+                    ", " + BridgeBoardsSchema.PlayerDevice.Cols.AKTIVAN + "] " +
+                    " VALUES (1, " + UUID.randomUUID().toString() + ", 1)");
     }
 
     @Override
@@ -101,6 +109,12 @@ public class BridgeBoardsHelper extends SQLiteOpenHelper {
                     BridgeBoardsSchema.PlayerDevice.Cols.UUID  + " string " +
                     ")"
             );
+
+            db.execSQL("INSERT INTO " + BridgeBoardsSchema.PlayerDevice.NAME +
+                    " [(" + BridgeBoardsSchema.PlayerDevice.Cols.ID +
+                    ", " + BridgeBoardsSchema.PlayerDevice.Cols.UUID +
+                    ", " + BridgeBoardsSchema.PlayerDevice.Cols.AKTIVAN + "] " +
+                    " VALUES (1, " + UUID.randomUUID().toString() + ", 1)");
         }
 
     }

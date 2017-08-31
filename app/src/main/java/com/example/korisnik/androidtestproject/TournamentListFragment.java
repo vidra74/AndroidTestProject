@@ -28,6 +28,7 @@ public class TournamentListFragment extends Fragment {
 
     private RecyclerView mTournamentRecycleList;
     private List<Tournament> mItems = new ArrayList<>();
+    private List<Board> mBoard = new ArrayList<>();
     private TournamentAdapater mTournamentAdapter;
 
     public static TournamentListFragment newInstance() {
@@ -170,6 +171,19 @@ public class TournamentListFragment extends Fragment {
         @Override
         protected void onPostExecute(List<Tournament> items) {
             mItems = items;
+            updateUI();
+        }
+    }
+
+    private class FetchBoardsTask extends AsyncTask<String,Void,List<Board>> {
+        @Override
+        protected List<Board> doInBackground(String... params) {
+            return new TournamentFetcher().fetchBoards(params[0]);
+        }
+
+        @Override
+        protected void onPostExecute(List<Board> items) {
+            mBoard = items;
             updateUI();
         }
     }

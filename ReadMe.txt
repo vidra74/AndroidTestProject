@@ -1,3 +1,6 @@
+2017.08.31	Fetching boards when acquiring tournament.
+		TODO: Check if boards exists and then insert them if needed
+
 2017.08.15	New table IGRACI
 		CursorWrapper created, schema updated.
 		PlayerDevice class created.

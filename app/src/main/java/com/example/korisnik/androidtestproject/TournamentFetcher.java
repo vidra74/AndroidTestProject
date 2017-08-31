@@ -14,6 +14,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by Korisnik on 16.7.2017..
@@ -79,6 +80,35 @@ public class TournamentFetcher {
         return items;
     }
 
+    public List<Board> fetchBoards(String tournament_uuid) {
+
+        List<Board> items = new ArrayList<>();
+
+        try {
+            String url = Uri.parse("http://franojancic.com/skola_bridza/json_turniri_bordovi.php")
+                    .buildUpon()
+                    // .appendQueryParameter("method", "flickr.photos.getRecent")
+                    // .appendQueryParameter("api_key", API_KEY)
+                    .appendQueryParameter("format", "json")
+                    .appendQueryParameter("t_uuid", tournament_uuid)
+                    // .appendQueryParameter("extras", "url_s")
+                    .build().toString();
+            String jsonString = getUrlString(url);
+            Log.i(TAG, "Received JSON: " + jsonString);
+            int pocetak = jsonString.indexOf("<body>");
+            int kraj = jsonString.indexOf("</body>");
+            jsonString = jsonString.substring(pocetak + 7, kraj - 1);
+            // JSONObject jsonBody = new JSONObject(jsonString);
+            parseBoards(items, jsonString);
+        } catch (IOException ioe) {
+            Log.e(TAG, "Failed to fetch items", ioe);
+        } catch (JSONException je) {
+            Log.e(TAG, "Failed to parse JSON", je);
+        }
+
+        return items;
+    }
+
     private void parseItems(List<Tournament> items, String jsonBody)
             throws IOException, JSONException {
 
@@ -98,6 +128,22 @@ public class TournamentFetcher {
                     itemJsonObject.getString("UUID")
                     );
 
+            items.add(item);
+        }
+    }
+
+    private void parseBoards(List<Board> items, String jsonBody)
+            throws IOException, JSONException {
+
+        JSONArray boardJsonArray = new JSONArray(jsonBody);
+
+        for (int i = 0; i < boardJsonArray.length(); i++) {
+            JSONObject itemJsonObject = boardJsonArray.getJSONObject(i);
+            // `ID_BORD`, `ID_TURNIR`, `RBR_BORD`, `UUID_TURNIR`, `UUID_BORD`, `DLM`, `VRIJEME`
+            Board item = new Board(UUID.fromString(itemJsonObject.getString("UUID_TURNIR")), 1);
+            item.setBoardId(UUID.fromString(itemJsonObject.getString("UUID_BORD")));
+            item.setTournamentBoardId(itemJsonObject.getInt("RBR_BORD"));
+            item.setDLM(itemJsonObject.getString("DLM"));
             items.add(item);
         }
     }

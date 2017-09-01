@@ -175,16 +175,4 @@ public class TournamentListFragment extends Fragment {
         }
     }
 
-    private class FetchBoardsTask extends AsyncTask<String,Void,List<Board>> {
-        @Override
-        protected List<Board> doInBackground(String... params) {
-            return new TournamentFetcher().fetchBoards(params[0]);
-        }
-
-        @Override
-        protected void onPostExecute(List<Board> items) {
-            mBoard = items;
-            updateUI();
-        }
-    }
 }

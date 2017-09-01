@@ -1,3 +1,6 @@
+2017.09.01	Getting boards from server.
+		Storing boards from asynctask to sqllite database.
+
 2017.08.31	Fetching boards when acquiring tournament.
 		TODO: Check if boards exists and then insert them if needed
 

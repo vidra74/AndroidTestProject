@@ -22,4 +22,5 @@
     <string name="tournamnent_item">Tournament downloading...</string>
     <string name="get_tournaments">Get tournament list</string>
     <string name="player_device">Device info</string>
+    <string name="sync_tournament">Synchronize</string>
 </resources>

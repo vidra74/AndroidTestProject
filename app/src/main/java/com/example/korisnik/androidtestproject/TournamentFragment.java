@@ -2,6 +2,7 @@ package com.example.korisnik.androidtestproject;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 import java.util.UUID;
@@ -77,6 +79,13 @@ public class TournamentFragment extends Fragment {
                 Intent intent = BoardPagerActivity.newIntent(getActivity(), lBoard.getBoardId(), mTournamentSelectedUUID);
                 startActivity(intent);
                 return true;
+            case R.id.sync_tournament:
+                if (mBoardAdapter.getItemCount() == 0){
+                    Toast.makeText(getContext(), "No boards for tournament UUID " + mTournamentSelectedUUID.toString(), Toast.LENGTH_SHORT).show();
+                    new FetchBoardsTask().execute(mTournamentSelectedUUID.toString());
+                } else {
+                    Toast.makeText(getContext(), "Uploading boards for tournament UUID " + mTournamentSelectedUUID.toString(), Toast.LENGTH_SHORT).show();
+                }
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -162,5 +171,23 @@ public class TournamentFragment extends Fragment {
             mBoardAdapter.notifyDataSetChanged();
         }
 
+    }
+
+    private class FetchBoardsTask extends AsyncTask<String,Void,List<Board>> {
+        @Override
+        protected List<Board> doInBackground(String... params) {
+            return new TournamentFetcher().fetchBoards(params[0]);
+        }
+
+        @Override
+        protected void onPostExecute(List<Board> items) {
+            mBoardAdapter.setBoards(items);
+
+            for (int i = 0; i < mBoardAdapter.getItemCount(); i++){
+                TournamentBoards.get(getActivity(), mBoardAdapter.mBoards.get(i).getTournamentId()).addBoard(mBoardAdapter.mBoards.get(i));
+            }
+
+            mBoardAdapter.notifyDataSetChanged();
+        }
     }
 }

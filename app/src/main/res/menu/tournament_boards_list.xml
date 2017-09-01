@@ -5,6 +5,8 @@
           android:icon="@android:drawable/ic_menu_add"
           android:title="@string/new_board"
           app:showAsAction="ifRoom|withText" />
-
-
+    <item android:id="@+id/sync_tournament"
+          android:icon="@android:drawable/ic_dialog_dialer"
+          android:title="@string/sync_tournament"
+          app:showAsAction="ifRoom|withText" />
 </menu>

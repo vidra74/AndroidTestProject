@@ -147,4 +147,44 @@ public class TournamentFetcher {
             items.add(item);
         }
     }
+
+    public void sendBoards(Board board){
+        try {
+
+            int ns_pair;
+            int ew_pair;
+            int is_bye = 0;
+            if (board.isNS()){
+                ns_pair = board.getPairId();
+                ew_pair = board.getOppsPairId();
+            } else {
+                ew_pair = board.getPairId();
+                ns_pair = board.getOppsPairId();
+            }
+            if (board.isBye()) { is_bye = 1; }
+
+
+            // http://www.franojancic.com/skola_bridza/prijava_rezultati.php?
+            // t_uuid=33671fea-8e5e-11e7-a351-00155d017c09&b_uuid=33675b5a-8e5e-11e7-a351-00155d017c09&
+            // ns_pair=8&ew_pair=1&contract=3NT&rbr=1&declarer=N&lead=S2&dec_tricks=9&ns_result=400&is_bye=0
+            String url = Uri.parse("http://franojancic.com/skola_bridza/prijava_rezultati.php")
+                    .buildUpon()
+                    .appendQueryParameter("t_uuid", board.getTournamentId().toString())
+                    .appendQueryParameter("b_uuid", board.getBoardId().toString())
+                    .appendQueryParameter("ns_pair", new Integer(ns_pair).toString())
+                    .appendQueryParameter("ew_pair", new Integer(ew_pair).toString())
+                    .appendQueryParameter("contract", board.getContract())
+                    .appendQueryParameter("rbr", new Integer(board.getTournamentBoardId()).toString())
+                    .appendQueryParameter("declarer", board.getDeclarer())
+                    .appendQueryParameter("lead", board.getLead())
+                    .appendQueryParameter("dec_tricks", new Integer(board.getDeclarerTricksToContract()).toString())
+                    .appendQueryParameter("ns_result", new Integer(board.getNSResult()).toString())
+                    .appendQueryParameter("is_bye", new Integer(is_bye).toString())
+                    .build().toString();
+            String jsonString = getUrlString(url);
+            Log.i(TAG, "Received : " + jsonString);
+        } catch (Exception ioe) {
+            Log.e(TAG, "Failed to send board", ioe);
+        }
+    }
 }

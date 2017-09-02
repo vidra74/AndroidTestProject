@@ -85,6 +85,9 @@ public class TournamentFragment extends Fragment {
                     new FetchBoardsTask().execute(mTournamentSelectedUUID.toString());
                 } else {
                     Toast.makeText(getContext(), "Uploading boards for tournament UUID " + mTournamentSelectedUUID.toString(), Toast.LENGTH_SHORT).show();
+                    for(int i = 0; i < mBoardAdapter.getItemCount(); i++) {
+                        new SendBoardTask().execute(mBoardAdapter.mBoards.get(i));
+                    }
                 }
             default:
                 return super.onOptionsItemSelected(item);
@@ -182,12 +185,22 @@ public class TournamentFragment extends Fragment {
         @Override
         protected void onPostExecute(List<Board> items) {
             mBoardAdapter.setBoards(items);
-
+            TournamentBoards turneyBoards = TournamentBoards.get(getActivity(), mTournamentSelectedUUID);
             for (int i = 0; i < mBoardAdapter.getItemCount(); i++){
-                TournamentBoards.get(getActivity(), mBoardAdapter.mBoards.get(i).getTournamentId()).addBoard(mBoardAdapter.mBoards.get(i));
+                turneyBoards.addBoard(mBoardAdapter.mBoards.get(i));
             }
-
             mBoardAdapter.notifyDataSetChanged();
         }
     }
+
+    private class SendBoardTask extends AsyncTask<Board, Void, Void>{
+
+        @Override
+        protected Void doInBackground(Board... pBoards) {
+            new TournamentFetcher().sendBoards(pBoards[0]);
+            return null;
+        }
+    }
+
+
 }

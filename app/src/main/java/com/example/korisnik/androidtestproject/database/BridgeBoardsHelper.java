@@ -62,10 +62,10 @@ public class BridgeBoardsHelper extends SQLiteOpenHelper {
         );
 
         db.execSQL("INSERT INTO " + BridgeBoardsSchema.PlayerDevice.NAME +
-                    " [(" + BridgeBoardsSchema.PlayerDevice.Cols.ID +
+                    " (" + BridgeBoardsSchema.PlayerDevice.Cols.ID +
                     ", " + BridgeBoardsSchema.PlayerDevice.Cols.UUID +
-                    ", " + BridgeBoardsSchema.PlayerDevice.Cols.AKTIVAN + "] " +
-                    " VALUES (1, " + UUID.randomUUID().toString() + ", 1)");
+                    ", " + BridgeBoardsSchema.PlayerDevice.Cols.AKTIVAN + ")" +
+                    " VALUES (1, '" + UUID.randomUUID().toString() + "', 1)");
     }
 
     @Override
@@ -111,10 +111,10 @@ public class BridgeBoardsHelper extends SQLiteOpenHelper {
             );
 
             db.execSQL("INSERT INTO " + BridgeBoardsSchema.PlayerDevice.NAME +
-                    " [(" + BridgeBoardsSchema.PlayerDevice.Cols.ID +
+                    " (" + BridgeBoardsSchema.PlayerDevice.Cols.ID +
                     ", " + BridgeBoardsSchema.PlayerDevice.Cols.UUID +
-                    ", " + BridgeBoardsSchema.PlayerDevice.Cols.AKTIVAN + "] " +
-                    " VALUES (1, " + UUID.randomUUID().toString() + ", 1)");
+                    ", " + BridgeBoardsSchema.PlayerDevice.Cols.AKTIVAN + ")" +
+                    " VALUES (1, '" + UUID.randomUUID().toString() + "', 1)");
         }
 
     }

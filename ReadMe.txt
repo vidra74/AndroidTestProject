@@ -1,3 +1,5 @@
+2017.09.02	Uploading results on server.
+
 2017.09.01	Getting boards from server.
 		Storing boards from asynctask to sqllite database.
 

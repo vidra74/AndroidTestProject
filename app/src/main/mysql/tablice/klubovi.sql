@@ -1,0 +1,6 @@
+﻿CREATE TABLE `KLUBOVI` (
+  `ID` int(11) NOT NULL,
+  `NAZIV` varchar(50) CHARACTER SET cp1250 COLLATE cp1250_croatian_ci NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
+

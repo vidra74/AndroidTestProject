@@ -1,0 +1,6 @@
+﻿CREATE TABLE `OBRACUN_TURNIRA` (
+  `ID` int(11) NOT NULL,
+  `Obracun` varchar(50) CHARACTER SET utf8 COLLATE utf8_croatian_ci NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
+

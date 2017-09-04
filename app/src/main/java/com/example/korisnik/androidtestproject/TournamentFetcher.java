@@ -166,7 +166,7 @@ public class TournamentFetcher {
 
             // http://www.franojancic.com/skola_bridza/prijava_rezultati.php?
             // t_uuid=33671fea-8e5e-11e7-a351-00155d017c09&b_uuid=33675b5a-8e5e-11e7-a351-00155d017c09&
-            // ns_pair=8&ew_pair=1&contract=3NT&rbr=1&declarer=N&lead=S2&dec_tricks=9&ns_result=400&is_bye=0 
+            // ns_pair=8&ew_pair=1&contract=3NT&rbr=1&declarer=N&lead=S2&dec_tricks=9&ns_result=400&is_bye=0
             String url = Uri.parse("http://franojancic.com/skola_bridza/prijava_rezultati.php")
                     .buildUpon()
                     .appendQueryParameter("t_uuid", board.getTournamentId().toString())

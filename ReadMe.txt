@@ -1,3 +1,6 @@
+2017.09.05	Device info reading and storing in SQLLitedatabase.
+		Activity for device owner data finished.
+
 2017.09.04	MySql folder with procedure scripts.
 
 2017.09.03	MySQL folder with scripts for tables.

@@ -83,8 +83,8 @@ public class PlayerDevice {
 
     public PlayerDevice(){
         this.mUUID = UUID.randomUUID();
-        this.mID = 0;
-        this.mKlub = 0;
-        this.mAktivan = 0;
+        this.mID = 1;
+        this.mKlub = 1;
+        this.mAktivan = 1;
     }
 }

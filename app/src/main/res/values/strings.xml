@@ -23,4 +23,8 @@
     <string name="get_tournaments">Get tournament list</string>
     <string name="player_device">Device info</string>
     <string name="sync_tournament">Synchronize</string>
+    <string name="player_name">Player Name:</string>
+    <string name="player_surname">Player Surname:</string>
+    <string name="player_email">E-Mail address:</string>
+    <string name="player_mobitel">Number:</string>
 </resources>

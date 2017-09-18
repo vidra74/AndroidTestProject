@@ -79,22 +79,22 @@ public class BoardShowFragment extends Fragment {
         if (mBoard != null) {
             mBoardDealer.setText(Integer.toString(mBoard.getTournamentBoardId()));
             mBoardZone.setText("NS");
-            mNS.setText(mBoard.getNS());
-            mNH.setText("NS");
-            mND.setText("NS");
-            mNC.setText("NS");
-            mES.setText("NS");
-            mEH.setText("NS");
-            mED.setText("NS");
-            mEC.setText("NS");
-            mSS.setText("NS");
-            mSH.setText("NS");
-            mSD.setText("NS");
-            mSC.setText("NS");
-            mWS.setText("NS");
-            mWH.setText("NS");
-            mWD.setText("NS");
-            mWC.setText("NS");
+            mNS.setText(mBoard.getCards("N", "S"));
+            mNH.setText(mBoard.getCards("N", "H"));
+            mND.setText(mBoard.getCards("N", "D"));
+            mNC.setText(mBoard.getCards("N", "C"));
+            mES.setText(mBoard.getCards("E", "S"));
+            mEH.setText(mBoard.getCards("E", "H"));
+            mED.setText(mBoard.getCards("E", "D"));
+            mEC.setText(mBoard.getCards("E", "C"));
+            mSS.setText(mBoard.getCards("S", "S"));
+            mSH.setText(mBoard.getCards("S", "H"));
+            mSD.setText(mBoard.getCards("S", "D"));
+            mSC.setText(mBoard.getCards("S", "C"));
+            mWS.setText(mBoard.getCards("W", "S"));
+            mWH.setText(mBoard.getCards("W", "H"));
+            mWD.setText(mBoard.getCards("W", "D"));
+            mWC.setText(mBoard.getCards("W", "C"));
         }
 
         return v;

@@ -1,3 +1,5 @@
+2017.09.18	DLM presentation of board.
+
 2017.09.05	Device info reading and storing in SQLLitedatabase.
 		Activity for device owner data finished.
 

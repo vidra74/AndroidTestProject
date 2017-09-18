@@ -1,6 +1,9 @@
 package com.example.korisnik.androidtestproject;
 
-import java.sql.Array;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import static java.lang.Math.abs;
@@ -22,6 +25,7 @@ public class Board {
     private int mDeclarerTricksToContract;
     private int mNSResult;
     private String mDLM;
+    private Map<String, ArrayList<Integer>> mRuka;
 
     public boolean isBye() {
         return mBye;
@@ -87,6 +91,51 @@ public class Board {
 
     public void setDLM(String pLead) {
         mDLM = pLead;
+        if (mRuka != null) {
+            mRuka.clear();
+        }
+        if (mDLM == ""){
+            return;
+        }
+
+        int nb, prvi, drugi, prvakarta, drugakarta;
+        String ch;
+
+        mRuka = new HashMap();
+
+        mRuka.put("N", new ArrayList());
+        mRuka.put("E", new ArrayList());
+        mRuka.put("S", new ArrayList());
+        mRuka.put("W", new ArrayList());
+
+        for (int I = 0; I < 26; I++)
+        {
+            nb = (int)(mDLM.charAt(I)) - 97;
+
+            if (nb > 15)
+            {
+                if (nb < 21)
+                {
+                    prvi  = (nb - 1) % 5;
+                    drugi = 4;
+                } else {
+                    prvi  = 4;
+                    drugi = (nb - 1) % 5;
+                }
+            } else {
+
+                prvi  = nb / 4;
+                drugi = nb % 4;
+            }
+
+            prvakarta  = (I * 2) - 2;
+            drugakarta = (I * 2) - 1;
+            ch = getIgrac(prvi);
+            mRuka.get(ch).add(prvakarta);
+            ch = getIgrac(drugi);
+            mRuka.get(ch).add(drugakarta);
+
+        }
     }
 
     public String getDeclarer() {
@@ -278,19 +327,72 @@ public class Board {
 
     }
 
-    public String getNS(){
+    public String getCards(String Hand, String Color){
+        String Holding = "";
         if (mDLM.isEmpty()){
-            return "";
+            return Holding;
         }
-        return "K 0 0";
+
+        int prvi, drugi, red_boja;
+
+        prvi    = 0;
+        drugi   = mRuka.get(Hand).size();
+
+        switch (Color){
+            case "S": red_boja = 0;
+                break;
+            case "H": red_boja = 1;
+                break;
+            case "D": red_boja = 2;
+                break;
+            case "C": red_boja = 3;
+                break;
+            default: red_boja = -1;
+                break;
+        }
+
+        while (prvi < drugi)
+        {
+
+            if ((mRuka.get(Hand).get(prvi) / 13) == red_boja) {
+                Holding = Holding + getKarta(mRuka.get(Hand).get(prvi) % 13) + " " ;
+            }
+            prvi++;
+        };
+
+
+
+
+        return Holding;
     }
 
-    public int vratiPrvuPozicijuZnaka(char ch){
-        return 1;
+    String getIgrac(int nPlayer){
+        switch(nPlayer){
+            case 0: return "N";
+            case 1: return "E";
+            case 2: return "S";
+            case 3: return "W";
+            default: return "?";
+        }
     }
 
-    public int vratiDruguPozicijuZnaka(char ch){
-        return 1;
+    String getKarta(int nKarta){
+        switch(nKarta){
+            case 0: return "A";
+            case 1: return "K";
+            case 2: return "Q";
+            case 3: return "J";
+            case 4: return "10";
+            case 5: return "9";
+            case 6: return "8";
+            case 7: return "7";
+            case 8: return "6";
+            case 9: return "5";
+            case 10: return "4";
+            case 11: return "3";
+            case 12: return "2";
+            default: return "";
+        }
     }
 
 }
